@@ -70,3 +70,8 @@ library-management/
 
 - Ensure that the `assets/` folder contains all required images and CSS/JS files.
 - For production use, update the database credentials and secure the application.
+
+
+
+Author
+[ Kishan Buha ]
