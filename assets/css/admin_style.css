@@ -1,0 +1,124 @@
+/* --- THEME VARIABLES --- */
+:root {
+    --bg-color: #FAF0E6; /* Aged Paper/Linen White */
+    --text-color: #3E2723; /* Very Dark Espresso Brown */
+    --card-bg: #ffffff;
+    --card-border: #e9e5e3;
+    --navbar-bg: #ffffff;
+    --navbar-border: #f0f0f0;
+    --navbar-text: #3E2723;
+    --primary-color: #5D4037; /* Rich Mahogany Brown */
+    --primary-hover: #4E342E; /* Darker Mahogany */
+    --offcanvas-bg: #ffffff;
+    --offcanvas-border: #dee2e6;
+    --hover-bg: #f5efe9; /* Subtle brown hover */
+}
+
+body.dark-mode {
+    --bg-color: #3E2723; /* Deep Espresso Brown */
+    --text-color: #D7CCC8; /* Pale Tan Text */
+    --card-bg: #4E342E;
+    --card-border: #5D4037;
+    --navbar-bg: #4E342E;
+    --navbar-border: #5D4037;
+    --navbar-text: #D7CCC8;
+    --offcanvas-bg: #4E342E;
+    --offcanvas-border: #5D4037;
+    --hover-bg: #5D4037;
+    --primary-color: #A1887F; /* Lighter Brown for contrast in dark mode */
+    --primary-hover: #8D6E63;
+}
+
+/* General Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding-top: 70px;
+    display: flex; flex-direction: column; min-height: 100vh;
+    transition: background-color 0.2s, color 0.2s;
+}
+main { flex: 1; padding: 1.5rem 0; }
+
+/* Header */
+.navbar {
+    background-color: var(--navbar-bg) !important;
+    border-bottom: 1px solid var(--navbar-border);
+    z-index: 1030;
+}
+.navbar-brand, .nav-link { color: var(--navbar-text) !important; }
+.navbar .btn-outline-light {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.navbar .btn-outline-light:hover { color: #ffffff; background-color: var(--primary-color); }
+
+/* Custom Title Underline */
+.title-underline {
+    display: inline-block;
+    padding-bottom: 0.25rem;
+    border-bottom: 3px solid var(--primary-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--navbar-bg) !important;
+    color: #6c757d;
+    border-top: 1px solid var(--navbar-border);
+    padding: 1rem 0;
+}
+
+/* Admin Dashboard Cards */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+}
+body:not(.dark-mode) .card.text-white .card-title, 
+body:not(.dark-mode) .card.text-white .card-text { color: #ffffff !important; }
+/* IMPORTANT: Update card colors to use the new primary-color for bg-primary */
+body:not(.dark-mode) .card.bg-primary { background-color: #5D4037 !important; } 
+body:not(.dark-mode) .card.bg-success { background-color: #198754 !important; } /* Kept default Bootstrap success */
+body:not(.dark-mode) .card.bg-warning { background-color: #ffc107 !important; } /* Kept default Bootstrap warning */
+body:not(.dark-mode) .card.bg-info { background-color: #0dcaf0 !important; } /* Kept default Bootstrap info */
+
+/* Tables */
+table { background-color: var(--card-bg); color: var(--text-color); }
+thead.table-dark th {
+    background-color: var(--primary-color); /* Updated to new primary color */
+    border-color: var(--primary-hover) !important;
+    color: #ffffff;
+}
+tbody tr:hover { background-color: var(--hover-bg); }
+a { color: var(--primary-color); }
+a:hover { color: var(--primary-hover); }
+
+/* Offcanvas Sidebar & Theme Switcher */
+.offcanvas { background-color: var(--offcanvas-bg); color: var(--text-color); }
+.offcanvas-header { border-bottom: 1px solid var(--offcanvas-border); }
+.offcanvas-title { color: var(--primary-color); font-weight: 600; }
+.offcanvas .nav-link { color: var(--text-color); }
+.offcanvas .nav-link:hover { background-color: var(--hover-bg); }
+.form-switch .form-check-input {
+    width: 3.5em; height: 1.8em;
+    background-color: #ccc;
+    border-color: #ccc;
+    cursor: pointer;
+}
+.form-switch .form-check-input:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+#theme-toggler label { cursor: pointer; }
+
+/* FIX for close button color in dark mode */
+body.dark-mode .btn-close {
+    filter: invert(1);
+}
+/* Add this to your CSS files */
+.nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: 600; /* Makes the text bolder */
+    background-color: var(--hover-bg); /* Adds a subtle background color */
+    border-left: 3px solid var(--primary-color); /* Adds a colored left border */
+    padding-left: calc(1rem - 3px); /* Adjusts padding to align text */
+}
